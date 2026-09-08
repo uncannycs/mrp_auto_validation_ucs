@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Wizard Form View -->
+        <record id="view_mrp_auto_validation_ucs_form" model="ir.ui.view">
+            <field name="name">mrp.auto.validation.ucs.form</field>
+            <field name="model">mrp.auto.validation.ucs</field>
+            <field name="arch" type="xml">
+                <form string="Auto Process Order">
+                    <group>
+                        <field name="process_type" widget="radio"/>
+                    </group>
+                    <footer>
+                        <button name="action_auto_process" string="Auto Process Order" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Wizard Action Window -->
+        <record id="action_mrp_auto_validation_ucs" model="ir.actions.act_window">
+            <field name="name">Auto Process Order</field>
+            <field name="res_model">mrp.auto.validation.ucs</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="mrp.model_mrp_production"/>
+            <field name="binding_type">action</field>
+        </record>
+    </data>
+</odoo>
